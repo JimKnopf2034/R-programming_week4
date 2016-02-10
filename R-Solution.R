@@ -14,11 +14,14 @@ readOutcome <- function() {
 # Creating a plot of the data read
 plotHeartRateHist <- function(data) {
     outcome <- as.numeric(data[, 11])
+    colors = c("red", "yellow", "green", "violet", "orange",
+   "blue", "pink", "cyan")
     png('img/heart_rate_hist.png')
-    hist(outcome)
+    hist(outcome, col=colors, main='30-day death rates')
     dev.off()
     invisible(outcome)
 }
+
 
 
 outcome <- readOutcome()
