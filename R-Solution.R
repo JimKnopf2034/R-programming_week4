@@ -22,7 +22,21 @@ plotHeartRateHist <- function(data) {
     invisible(outcome)
 }
 
+# Task 2
+# ---------
+#
+# Find the best hospital in a state regarding the lowest 30-day-mortality for
+# the specified type of outcome. The type can be 'heart attack', 'heart failure'
+# or 'pneumonia'.
+#
+# Strategy: extract state, and the type of outcome from the data, apply
+# complete.cases and than find the hospital with the lowest number
+#
+# Notes: Using a list as a map from name to column number
+best <- function(state, type_of_outcome, data){
+    idx <- list("heart attack"=11, "heart failure"=17, "pneumonia"=23)
+}
 
-
+# Running Task 1
 outcome <- readOutcome()
 plotHeartRateHist(outcome)
