@@ -19,6 +19,7 @@ plotHeartRateHist <- function(data) {
     png('img/heart_rate_hist.png')
     hist(outcome, col=colors, main='30-day death rates')
     dev.off()
+    print("Histogramm saved in img/heart_rate_hist.png")
     invisible(outcome)
 }
 
@@ -35,8 +36,20 @@ plotHeartRateHist <- function(data) {
 # Notes: Using a list as a map from name to column number
 best <- function(state, type_of_outcome, data){
     idx <- list("heart attack"=11, "heart failure"=17, "pneumonia"=23)
+    filt = list('name'=2, 'state'=7, "value"=idx[type_of_outcome])
+    work_data <- data.frame(data[idx])
+    work_data <- work_data[complete.cases(work_data),]
+    state_data <- work_data[work_data[,2]==state]
+    # sortieren
+    # return first line
 }
 
 # Running Task 1
+print("Reading Data \n")
 outcome <- readOutcome()
+print("Running Task 1")
 plotHeartRateHist(outcome)
+
+
+print("Running Task 2")
+# Running Task 2
